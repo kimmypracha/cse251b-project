@@ -1,0 +1,212 @@
+GPU available: True (mps), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+wandb: Currently logged in as: kimmypracha to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.19.11
+wandb: Run data is saved locally in ./wandb/run-20250515_141446-3uj3876z
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run worthy-haze-4
+wandb: ⭐️ View project at https://wandb.ai/kimmypracha/my_mlp_project
+wandb: 🚀 View run at https://wandb.ai/kimmypracha/my_mlp_project/runs/3uj3876z
+
+  | Name      | Type       | Params | Mode 
+-------------------------------------------------
+0 | model     | Sequential | 16.0 M | train
+1 | criterion | MSELoss    | 0      | train
+-------------------------------------------------
+16.0 M    Trainable params
+0         Non-trainable params
+16.0 M    Total params
+64.192    Total estimated model params size (MB)
+13        Modules in train mode
+0         Modules in eval mode
+train_data's shape (10000, 50, 110, 6)
+test_data's shape (2100, 50, 50, 6)
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/Users/kimmypracha/miniconda3/lib/python3.12/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:425: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=10` in the `DataLoader` to improve performance.
+Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]v:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.12it/s]v:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  7.97it/s]                                                                           /Users/kimmypracha/miniconda3/lib/python3.12/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:425: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=10` in the `DataLoader` to improve performance.
+Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/63 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/63 [00:00<?, ?it/s] t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:   2%|▏         | 1/63 [00:00<00:20,  2.98it/s]Epoch 0:   2%|▏         | 1/63 [00:00<00:20,  2.97it/s, v_num=876z, train_loss_step=1.1e+7]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:   3%|▎         | 2/63 [00:00<00:10,  5.72it/s, v_num=876z, train_loss_step=1.1e+7]Epoch 0:   3%|▎         | 2/63 [00:00<00:10,  5.59it/s, v_num=876z, train_loss_step=7.01e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:   5%|▍         | 3/63 [00:00<00:07,  8.20it/s, v_num=876z, train_loss_step=7.01e+6]Epoch 0:   5%|▍         | 3/63 [00:00<00:07,  7.96it/s, v_num=876z, train_loss_step=9.62e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:   6%|▋         | 4/63 [00:00<00:05, 10.40it/s, v_num=876z, train_loss_step=9.62e+6]Epoch 0:   6%|▋         | 4/63 [00:00<00:05, 10.11it/s, v_num=876z, train_loss_step=6.22e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:   8%|▊         | 5/63 [00:00<00:04, 12.41it/s, v_num=876z, train_loss_step=6.22e+6]Epoch 0:   8%|▊         | 5/63 [00:00<00:04, 12.12it/s, v_num=876z, train_loss_step=3.88e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  10%|▉         | 6/63 [00:00<00:04, 14.16it/s, v_num=876z, train_loss_step=3.88e+6]Epoch 0:  10%|▉         | 6/63 [00:00<00:04, 13.79it/s, v_num=876z, train_loss_step=5.2e+6] t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  11%|█         | 7/63 [00:00<00:03, 15.82it/s, v_num=876z, train_loss_step=5.2e+6]Epoch 0:  11%|█         | 7/63 [00:00<00:03, 15.39it/s, v_num=876z, train_loss_step=3.77e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  13%|█▎        | 8/63 [00:00<00:03, 17.30it/s, v_num=876z, train_loss_step=3.77e+6]Epoch 0:  13%|█▎        | 8/63 [00:00<00:03, 16.86it/s, v_num=876z, train_loss_step=2.67e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  14%|█▍        | 9/63 [00:00<00:02, 18.66it/s, v_num=876z, train_loss_step=2.67e+6]Epoch 0:  14%|█▍        | 9/63 [00:00<00:02, 18.18it/s, v_num=876z, train_loss_step=1.96e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  16%|█▌        | 10/63 [00:00<00:02, 19.85it/s, v_num=876z, train_loss_step=1.96e+6]Epoch 0:  16%|█▌        | 10/63 [00:00<00:02, 19.26it/s, v_num=876z, train_loss_step=1.83e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  17%|█▋        | 11/63 [00:00<00:02, 20.66it/s, v_num=876z, train_loss_step=1.83e+6]Epoch 0:  17%|█▋        | 11/63 [00:00<00:02, 20.20it/s, v_num=876z, train_loss_step=1.69e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  19%|█▉        | 12/63 [00:00<00:02, 21.52it/s, v_num=876z, train_loss_step=1.69e+6]Epoch 0:  19%|█▉        | 12/63 [00:00<00:02, 20.96it/s, v_num=876z, train_loss_step=1.59e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  21%|██        | 13/63 [00:00<00:02, 22.33it/s, v_num=876z, train_loss_step=1.59e+6]Epoch 0:  21%|██        | 13/63 [00:00<00:02, 21.90it/s, v_num=876z, train_loss_step=1.51e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  22%|██▏       | 14/63 [00:00<00:02, 22.93it/s, v_num=876z, train_loss_step=1.51e+6]Epoch 0:  22%|██▏       | 14/63 [00:00<00:02, 22.51it/s, v_num=876z, train_loss_step=1.36e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  24%|██▍       | 15/63 [00:00<00:02, 23.68it/s, v_num=876z, train_loss_step=1.36e+6]Epoch 0:  24%|██▍       | 15/63 [00:00<00:02, 23.27it/s, v_num=876z, train_loss_step=1.52e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  25%|██▌       | 16/63 [00:00<00:01, 24.46it/s, v_num=876z, train_loss_step=1.52e+6]Epoch 0:  25%|██▌       | 16/63 [00:00<00:01, 24.00it/s, v_num=876z, train_loss_step=1.11e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  27%|██▋       | 17/63 [00:00<00:01, 25.11it/s, v_num=876z, train_loss_step=1.11e+6]Epoch 0:  27%|██▋       | 17/63 [00:00<00:01, 24.68it/s, v_num=876z, train_loss_step=1.13e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  29%|██▊       | 18/63 [00:00<00:01, 25.73it/s, v_num=876z, train_loss_step=1.13e+6]Epoch 0:  29%|██▊       | 18/63 [00:00<00:01, 25.32it/s, v_num=876z, train_loss_step=1.22e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  30%|███       | 19/63 [00:00<00:01, 26.37it/s, v_num=876z, train_loss_step=1.22e+6]Epoch 0:  30%|███       | 19/63 [00:00<00:01, 25.91it/s, v_num=876z, train_loss_step=8.18e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  32%|███▏      | 20/63 [00:00<00:01, 26.91it/s, v_num=876z, train_loss_step=8.18e+5]Epoch 0:  32%|███▏      | 20/63 [00:00<00:01, 26.48it/s, v_num=876z, train_loss_step=1.14e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  33%|███▎      | 21/63 [00:00<00:01, 27.42it/s, v_num=876z, train_loss_step=1.14e+6]Epoch 0:  33%|███▎      | 21/63 [00:00<00:01, 26.99it/s, v_num=876z, train_loss_step=7.19e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  35%|███▍      | 22/63 [00:00<00:01, 27.94it/s, v_num=876z, train_loss_step=7.19e+5]Epoch 0:  35%|███▍      | 22/63 [00:00<00:01, 27.46it/s, v_num=876z, train_loss_step=8e+5]   t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  37%|███▋      | 23/63 [00:00<00:01, 28.16it/s, v_num=876z, train_loss_step=8e+5]Epoch 0:  37%|███▋      | 23/63 [00:00<00:01, 27.74it/s, v_num=876z, train_loss_step=6.83e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  38%|███▊      | 24/63 [00:00<00:01, 28.62it/s, v_num=876z, train_loss_step=6.83e+5]Epoch 0:  38%|███▊      | 24/63 [00:00<00:01, 28.13it/s, v_num=876z, train_loss_step=7.13e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  40%|███▉      | 25/63 [00:00<00:01, 28.96it/s, v_num=876z, train_loss_step=7.13e+5]Epoch 0:  40%|███▉      | 25/63 [00:00<00:01, 28.59it/s, v_num=876z, train_loss_step=1.05e+6]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  41%|████▏     | 26/63 [00:00<00:01, 29.41it/s, v_num=876z, train_loss_step=1.05e+6]Epoch 0:  41%|████▏     | 26/63 [00:00<00:01, 29.08it/s, v_num=876z, train_loss_step=5.55e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  43%|████▎     | 27/63 [00:00<00:01, 29.89it/s, v_num=876z, train_loss_step=5.55e+5]Epoch 0:  43%|████▎     | 27/63 [00:00<00:01, 29.56it/s, v_num=876z, train_loss_step=7.96e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  44%|████▍     | 28/63 [00:00<00:01, 30.33it/s, v_num=876z, train_loss_step=7.96e+5]Epoch 0:  44%|████▍     | 28/63 [00:00<00:01, 29.97it/s, v_num=876z, train_loss_step=8.1e+5] t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  46%|████▌     | 29/63 [00:00<00:01, 30.72it/s, v_num=876z, train_loss_step=8.1e+5]Epoch 0:  46%|████▌     | 29/63 [00:00<00:01, 30.40it/s, v_num=876z, train_loss_step=7.93e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  48%|████▊     | 30/63 [00:00<00:01, 31.14it/s, v_num=876z, train_loss_step=7.93e+5]Epoch 0:  48%|████▊     | 30/63 [00:00<00:01, 30.82it/s, v_num=876z, train_loss_step=6.21e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  49%|████▉     | 31/63 [00:00<00:01, 31.56it/s, v_num=876z, train_loss_step=6.21e+5]Epoch 0:  49%|████▉     | 31/63 [00:00<00:01, 31.24it/s, v_num=876z, train_loss_step=6.73e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  51%|█████     | 32/63 [00:01<00:00, 31.91it/s, v_num=876z, train_loss_step=6.73e+5]Epoch 0:  51%|█████     | 32/63 [00:01<00:00, 31.60it/s, v_num=876z, train_loss_step=6.19e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  52%|█████▏    | 33/63 [00:01<00:00, 32.26it/s, v_num=876z, train_loss_step=6.19e+5]Epoch 0:  52%|█████▏    | 33/63 [00:01<00:00, 31.94it/s, v_num=876z, train_loss_step=5.29e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  54%|█████▍    | 34/63 [00:01<00:00, 32.64it/s, v_num=876z, train_loss_step=5.29e+5]Epoch 0:  54%|█████▍    | 34/63 [00:01<00:00, 32.34it/s, v_num=876z, train_loss_step=3.82e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  56%|█████▌    | 35/63 [00:01<00:00, 33.01it/s, v_num=876z, train_loss_step=3.82e+5]Epoch 0:  56%|█████▌    | 35/63 [00:01<00:00, 32.72it/s, v_num=876z, train_loss_step=5.12e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  57%|█████▋    | 36/63 [00:01<00:00, 33.37it/s, v_num=876z, train_loss_step=5.12e+5]Epoch 0:  57%|█████▋    | 36/63 [00:01<00:00, 33.08it/s, v_num=876z, train_loss_step=5.11e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  59%|█████▊    | 37/63 [00:01<00:00, 33.70it/s, v_num=876z, train_loss_step=5.11e+5]Epoch 0:  59%|█████▊    | 37/63 [00:01<00:00, 33.40it/s, v_num=876z, train_loss_step=2.96e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  60%|██████    | 38/63 [00:01<00:00, 34.04it/s, v_num=876z, train_loss_step=2.96e+5]Epoch 0:  60%|██████    | 38/63 [00:01<00:00, 33.75it/s, v_num=876z, train_loss_step=4.84e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  62%|██████▏   | 39/63 [00:01<00:00, 34.38it/s, v_num=876z, train_loss_step=4.84e+5]Epoch 0:  62%|██████▏   | 39/63 [00:01<00:00, 34.08it/s, v_num=876z, train_loss_step=4.55e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  63%|██████▎   | 40/63 [00:01<00:00, 34.65it/s, v_num=876z, train_loss_step=4.55e+5]Epoch 0:  63%|██████▎   | 40/63 [00:01<00:00, 34.35it/s, v_num=876z, train_loss_step=3.74e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  65%|██████▌   | 41/63 [00:01<00:00, 34.89it/s, v_num=876z, train_loss_step=3.74e+5]Epoch 0:  65%|██████▌   | 41/63 [00:01<00:00, 34.60it/s, v_num=876z, train_loss_step=6.11e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  67%|██████▋   | 42/63 [00:01<00:00, 35.19it/s, v_num=876z, train_loss_step=6.11e+5]Epoch 0:  67%|██████▋   | 42/63 [00:01<00:00, 34.91it/s, v_num=876z, train_loss_step=3.8e+5] t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  68%|██████▊   | 43/63 [00:01<00:00, 35.48it/s, v_num=876z, train_loss_step=3.8e+5]Epoch 0:  68%|██████▊   | 43/63 [00:01<00:00, 35.19it/s, v_num=876z, train_loss_step=3.93e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  70%|██████▉   | 44/63 [00:01<00:00, 35.76it/s, v_num=876z, train_loss_step=3.93e+5]Epoch 0:  70%|██████▉   | 44/63 [00:01<00:00, 35.48it/s, v_num=876z, train_loss_step=5.06e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  71%|███████▏  | 45/63 [00:01<00:00, 36.02it/s, v_num=876z, train_loss_step=5.06e+5]Epoch 0:  71%|███████▏  | 45/63 [00:01<00:00, 35.74it/s, v_num=876z, train_loss_step=4.85e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  73%|███████▎  | 46/63 [00:01<00:00, 36.29it/s, v_num=876z, train_loss_step=4.85e+5]Epoch 0:  73%|███████▎  | 46/63 [00:01<00:00, 36.01it/s, v_num=876z, train_loss_step=5.39e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  75%|███████▍  | 47/63 [00:01<00:00, 36.56it/s, v_num=876z, train_loss_step=5.39e+5]Epoch 0:  75%|███████▍  | 47/63 [00:01<00:00, 36.27it/s, v_num=876z, train_loss_step=3.96e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  76%|███████▌  | 48/63 [00:01<00:00, 36.76it/s, v_num=876z, train_loss_step=3.96e+5]Epoch 0:  76%|███████▌  | 48/63 [00:01<00:00, 36.45it/s, v_num=876z, train_loss_step=3.51e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  78%|███████▊  | 49/63 [00:01<00:00, 36.97it/s, v_num=876z, train_loss_step=3.51e+5]Epoch 0:  78%|███████▊  | 49/63 [00:01<00:00, 36.65it/s, v_num=876z, train_loss_step=2.93e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  79%|███████▉  | 50/63 [00:01<00:00, 37.13it/s, v_num=876z, train_loss_step=2.93e+5]Epoch 0:  79%|███████▉  | 50/63 [00:01<00:00, 36.84it/s, v_num=876z, train_loss_step=3.27e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  81%|████████  | 51/63 [00:01<00:00, 37.31it/s, v_num=876z, train_loss_step=3.27e+5]Epoch 0:  81%|████████  | 51/63 [00:01<00:00, 37.03it/s, v_num=876z, train_loss_step=3.72e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  83%|████████▎ | 52/63 [00:01<00:00, 37.26it/s, v_num=876z, train_loss_step=3.72e+5]Epoch 0:  83%|████████▎ | 52/63 [00:01<00:00, 36.96it/s, v_num=876z, train_loss_step=4.62e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  84%|████████▍ | 53/63 [00:01<00:00, 37.37it/s, v_num=876z, train_loss_step=4.62e+5]Epoch 0:  84%|████████▍ | 53/63 [00:01<00:00, 37.09it/s, v_num=876z, train_loss_step=3.3e+5] t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  86%|████████▌ | 54/63 [00:01<00:00, 37.54it/s, v_num=876z, train_loss_step=3.3e+5]Epoch 0:  86%|████████▌ | 54/63 [00:01<00:00, 37.22it/s, v_num=876z, train_loss_step=3.34e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  87%|████████▋ | 55/63 [00:01<00:00, 37.66it/s, v_num=876z, train_loss_step=3.34e+5]Epoch 0:  87%|████████▋ | 55/63 [00:01<00:00, 37.35it/s, v_num=876z, train_loss_step=3.06e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  89%|████████▉ | 56/63 [00:01<00:00, 37.73it/s, v_num=876z, train_loss_step=3.06e+5]Epoch 0:  89%|████████▉ | 56/63 [00:01<00:00, 37.42it/s, v_num=876z, train_loss_step=3.83e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  90%|█████████ | 57/63 [00:01<00:00, 37.87it/s, v_num=876z, train_loss_step=3.83e+5]Epoch 0:  90%|█████████ | 57/63 [00:01<00:00, 37.51it/s, v_num=876z, train_loss_step=3.19e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  92%|█████████▏| 58/63 [00:01<00:00, 37.91it/s, v_num=876z, train_loss_step=3.19e+5]Epoch 0:  92%|█████████▏| 58/63 [00:01<00:00, 37.63it/s, v_num=876z, train_loss_step=4.45e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  94%|█████████▎| 59/63 [00:01<00:00, 38.06it/s, v_num=876z, train_loss_step=4.45e+5]Epoch 0:  94%|█████████▎| 59/63 [00:01<00:00, 37.81it/s, v_num=876z, train_loss_step=3.07e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  95%|█████████▌| 60/63 [00:01<00:00, 38.23it/s, v_num=876z, train_loss_step=3.07e+5]Epoch 0:  95%|█████████▌| 60/63 [00:01<00:00, 37.99it/s, v_num=876z, train_loss_step=3.48e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  97%|█████████▋| 61/63 [00:01<00:00, 38.29it/s, v_num=876z, train_loss_step=3.48e+5]Epoch 0:  97%|█████████▋| 61/63 [00:01<00:00, 38.02it/s, v_num=876z, train_loss_step=4.24e+5]t:y_hat's shape torch.Size([128, 120])
+t:y's shape torch.Size([128, 120])
+Epoch 0:  98%|█████████▊| 62/63 [00:01<00:00, 38.42it/s, v_num=876z, train_loss_step=4.24e+5]Epoch 0:  98%|█████████▊| 62/63 [00:01<00:00, 38.10it/s, v_num=876z, train_loss_step=2.86e+5]t:y_hat's shape torch.Size([64, 120])
+t:y's shape torch.Size([64, 120])
+Epoch 0: 100%|██████████| 63/63 [00:01<00:00, 33.69it/s, v_num=876z, train_loss_step=2.86e+5]Epoch 0: 100%|██████████| 63/63 [00:01<00:00, 33.48it/s, v_num=876z, train_loss_step=3.44e+5]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/16 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/16 [00:00<?, ?it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:   6%|▋         | 1/16 [00:00<00:00, 612.75it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  12%|█▎        | 2/16 [00:00<00:00, 242.89it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  19%|█▉        | 3/16 [00:00<00:00, 161.62it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  25%|██▌       | 4/16 [00:00<00:00, 177.21it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  31%|███▏      | 5/16 [00:00<00:00, 140.32it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  38%|███▊      | 6/16 [00:00<00:00, 143.24it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  44%|████▍     | 7/16 [00:00<00:00, 144.70it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  50%|█████     | 8/16 [00:00<00:00, 146.27it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  56%|█████▋    | 9/16 [00:00<00:00, 147.37it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  62%|██████▎   | 10/16 [00:00<00:00, 146.59it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  69%|██████▉   | 11/16 [00:00<00:00, 140.34it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  75%|███████▌  | 12/16 [00:00<00:00, 139.88it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  81%|████████▏ | 13/16 [00:00<00:00, 136.49it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  88%|████████▊ | 14/16 [00:00<00:00, 138.11it/s][Av:y_hat's shape torch.Size([128, 120])
+v:y's shape torch.Size([128, 120])
+
+Validation DataLoader 0:  94%|█████████▍| 15/16 [00:00<00:00, 138.77it/s][Av:y_hat's shape torch.Size([80, 120])
+v:y's shape torch.Size([80, 120])
+
+Validation DataLoader 0: 100%|██████████| 16/16 [00:00<00:00, 66.06it/s] [A
+                                                                        [AEpoch 0: 100%|██████████| 63/63 [00:02<00:00, 29.52it/s, v_num=876z, train_loss_step=3.44e+5, val_loss=1.08e+5]Epoch 0: 100%|██████████| 63/63 [00:02<00:00, 29.51it/s, v_num=876z, train_loss_step=3.44e+5, val_loss=1.08e+5, train_loss_epoch=1.4e+6]`Trainer.fit` stopped: `max_epochs=1` reached.
+Epoch 0: 100%|██████████| 63/63 [00:02<00:00, 26.82it/s, v_num=876z, train_loss_step=3.44e+5, val_loss=1.08e+5, train_loss_epoch=1.4e+6]
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mworthy-haze-4[0m at: [34mhttps://wandb.ai/kimmypracha/my_mlp_project/runs/3uj3876z[0m

@@ -1,0 +1,4 @@
+data/*
+my_mlp_project/*
+wandb/*
+train.log
