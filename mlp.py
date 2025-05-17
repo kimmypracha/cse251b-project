@@ -7,7 +7,8 @@ import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 import numpy as np
-import wandb
+
+
 class MLP(pl.LightningModule):
     def __init__(self, input_features, output_features, lr=1e-3):
         super().__init__()
@@ -122,20 +123,15 @@ def make_dataloaders_cnn(x_train, y_train, x_val, y_val, batch_size, input_featu
         DataLoader(val_ds, batch_size=batch_size)
     )
 
-
-
-
-
-
 if __name__ == "__main__":
     import argparse
-
+    import wandb
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--max_epochs", type=int, default=10)
     parser.add_argument("--lr", type=float, default=1e-3)
-    parser.add_argument("--num_conv_blocks", type=int, default=2)
+    parser.add_argument("--optimizer", type=str, default="adam")
     parser.add_argument("--project", type=str, default="ml_experiments")
     args = parser.parse_args()
     input_features = 50 * 50 * 6  # = 5000
@@ -158,26 +154,17 @@ if __name__ == "__main__":
     x_train, y_train = train_data[:train_len, :, :50, :], train_data[:train_len, 0, 50:, :2]
     x_val,   y_val   = train_data[train_len:, :, :50, :], train_data[train_len:, 0, 50:, :2]
 
-    # train_loader, val_loader = make_dataloaders(
-    #     x_train, y_train, x_val, y_val, args.batch_size, 
-    #     input_features=input_features, output_features=output_features
-    # )
-
-    # model = MLP(
-    #     input_features=input_features,
-    #     output_features=output_features,
-    #     lr=args.lr
-    # )
-
-    train_loader, val_loader = make_dataloaders_cnn(
+    train_loader, val_loader = make_dataloaders(
         x_train, y_train, x_val, y_val, args.batch_size, 
         input_features=input_features, output_features=output_features
     )
-    model = CNN(
+
+    model = MLP(
         input_features=input_features,
         output_features=output_features,
         lr=args.lr
     )
+
     # callbacks for checkpointing & early stopping
     ckpt = ModelCheckpoint(
         monitor="val_loss",
@@ -196,4 +183,4 @@ if __name__ == "__main__":
         max_epochs=args.max_epochs,
     )
 
-    trainer.fit(model, train_loader, val_loader)
+    trainer.fit(model, train_loader, val_loader) 

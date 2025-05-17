@@ -7,68 +7,49 @@ import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 import numpy as np
-import wandb
-class MLP(pl.LightningModule):
-    def __init__(self, input_features, output_features, lr=1e-3):
-        super().__init__()
-        # save hyperparameters to self.hparams automatically
-        self.save_hyperparameters()
 
-        # model architecture
-        self.model = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(input_features, 1024), nn.ReLU(), nn.Dropout(0.1),
-            nn.Linear(1024, 512),          nn.ReLU(), nn.Dropout(0.1),
-            nn.Linear(512, 256),           nn.ReLU(), nn.Dropout(0.1),
-            nn.Linear(256, output_features)
-        )
-
-        self.criterion = nn.MSELoss()
-
-    def forward(self, x):
-        return self.model(x)
-
-    def training_step(self, batch, batch_idx):
-        x, y = batch
-        y_hat = self(x)
-        print("t:y_hat's shape", y_hat.shape)
-        print("t:y's shape", y.shape)
-
-        loss = self.criterion(y_hat, y)
-
-        # log to both progress bar and wandb
-        self.log("train_loss", loss, on_epoch=True, prog_bar=True)
-        return loss
-
-    def validation_step(self, batch, batch_idx):
-        x, y = batch
-        y_hat = self(x)
-        print("v:y_hat's shape", y_hat.shape)
-        print("v:y's shape", y.shape)
-        loss = self.criterion(y_hat, y)
-
-        self.log("val_loss", loss, on_epoch=True, prog_bar=True)
-
-    def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.hparams.lr)
-    
 class CNN(pl.LightningModule):
-    def __init__(self, input_features, output_features, lr=1e-3):
+    def __init__(self, input_features, output_features, lr=1e-3, num_conv_blocks=2, optimizer="adam"):
         super().__init__()
         # save hyperparameters to self.hparams automatically
         self.save_hyperparameters()
 
         # model architecture
+        # self.model = nn.Sequential(
+        #     nn.Conv2d(6, 16, kernel_size=3, stride=1, padding=1),
+        #     nn.ReLU(),
+        #     nn.MaxPool2d(kernel_size=2, stride=2),
+        #     nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1),
+        #     nn.ReLU(),
+        #     nn.MaxPool2d(kernel_size=2, stride=2),
+        #     nn.Flatten(),
+        #     nn.Linear(32 * 12 * 12, output_features)
+        # )
+        # repeat the convolutional block num_conv_blocks times
+        conv_blocks = []
+        in_channels = 6
+        out_channels = 16
+        kernel_size = 3
+        stride = 1
+        padding = 1
+        # calculate the output size after each convolutional block
+        out_size = 50
+        self.optimizer_name = optimizer
+        for _ in range(num_conv_blocks):
+            conv_blocks.append(nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding))
+            conv_blocks.append(nn.ReLU())
+            conv_blocks.append(nn.MaxPool2d(kernel_size=2, stride=2))
+            in_channels = out_channels
+            out_channels *= 2
+            out_size = (out_size - kernel_size + 2 * padding) // stride + 1
+            out_size = (out_size - 2) // 2 + 1
+
         self.model = nn.Sequential(
-            nn.Conv2d(6, 16, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2),
+            *conv_blocks,
             nn.Flatten(),
-            nn.Linear(32 * 12 * 12, output_features)
+            nn.Linear(in_channels * out_size * out_size, output_features)
         )
+
 
         self.criterion = nn.MSELoss()
 
@@ -92,21 +73,22 @@ class CNN(pl.LightningModule):
         self.log("val_loss", loss, on_epoch=True, prog_bar=True)
 
     def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.hparams.lr)
+        optimizer = None
+        if self.optimizer_name == "adam":
+            optimizer =  torch.optim.Adam(self.parameters(), lr=self.hparams.lr)
+        elif self.optimizer_name == "sgd":
+            optimizer =  torch.optim.SGD(self.parameters(), lr=self.hparams.lr)
+        elif self.optimizer_name == "adamw":
+            optimizer =  torch.optim.AdamW(self.parameters(), lr=self.hparams.lr)
+        elif self.optimizer_name == "rmsprop":
+            optimizer =  torch.optim.RMSprop(self.parameters(), lr=self.hparams.lr)
+        # return optimizer
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.9)
+        return {
+            "optimizer": optimizer,
+            "lr_scheduler": {"scheduler": scheduler, "monitor": "val_loss"}
+        }
 
-def make_dataloaders(x_train, y_train, x_val, y_val, batch_size, input_features, output_features):
-    train_ds = TensorDataset(
-        torch.FloatTensor(x_train).view(-1, input_features),
-        torch.FloatTensor(y_train).view(-1, output_features)
-    )
-    val_ds = TensorDataset(
-        torch.FloatTensor(x_val).view(-1, input_features),
-        torch.FloatTensor(y_val).view(-1, output_features)
-    )
-    return (
-        DataLoader(train_ds, batch_size=batch_size, shuffle=True),
-        DataLoader(val_ds, batch_size=batch_size)
-    )
 
 def make_dataloaders_cnn(x_train, y_train, x_val, y_val, batch_size, input_features, output_features):
     train_ds = TensorDataset(
@@ -122,21 +104,17 @@ def make_dataloaders_cnn(x_train, y_train, x_val, y_val, batch_size, input_featu
         DataLoader(val_ds, batch_size=batch_size)
     )
 
-
-
-
-
-
 if __name__ == "__main__":
     import argparse
-
+    import wandb
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--batch_size", type=int, default=64)
-    parser.add_argument("--max_epochs", type=int, default=10)
+    parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--num_conv_blocks", type=int, default=2)
     parser.add_argument("--project", type=str, default="ml_experiments")
+    parser.add_argument("--optimizer", type=str, default="adam")
     args = parser.parse_args()
     input_features = 50 * 50 * 6  # = 5000
     output_features = 60 * 2
@@ -145,10 +123,11 @@ if __name__ == "__main__":
         project=args.project,
         config=vars(args)
     )
-    train_file = np.load('data/train.npz')
+
+    train_file = np.load('../data/train.npz')
     train_data = train_file['data']
     print("train_data's shape", train_data.shape)
-    test_file = np.load('data/test_input.npz')
+    test_file = np.load('../data/test_input.npz')
     test_data = test_file['data']
     print("test_data's shape", test_data.shape)
     # replace these with your own data splits
@@ -158,17 +137,6 @@ if __name__ == "__main__":
     x_train, y_train = train_data[:train_len, :, :50, :], train_data[:train_len, 0, 50:, :2]
     x_val,   y_val   = train_data[train_len:, :, :50, :], train_data[train_len:, 0, 50:, :2]
 
-    # train_loader, val_loader = make_dataloaders(
-    #     x_train, y_train, x_val, y_val, args.batch_size, 
-    #     input_features=input_features, output_features=output_features
-    # )
-
-    # model = MLP(
-    #     input_features=input_features,
-    #     output_features=output_features,
-    #     lr=args.lr
-    # )
-
     train_loader, val_loader = make_dataloaders_cnn(
         x_train, y_train, x_val, y_val, args.batch_size, 
         input_features=input_features, output_features=output_features
@@ -176,7 +144,9 @@ if __name__ == "__main__":
     model = CNN(
         input_features=input_features,
         output_features=output_features,
-        lr=args.lr
+        lr=args.lr,
+        num_conv_blocks=args.num_conv_blocks,
+        optimizer=args.optimizer
     )
     # callbacks for checkpointing & early stopping
     ckpt = ModelCheckpoint(
@@ -193,7 +163,7 @@ if __name__ == "__main__":
     trainer = pl.Trainer(
         logger=wandb_logger,
         callbacks=[ckpt, early_stop],
-        max_epochs=args.max_epochs,
+        max_epochs=args.epochs,
     )
 
     trainer.fit(model, train_loader, val_loader)
