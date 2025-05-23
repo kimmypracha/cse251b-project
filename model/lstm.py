@@ -2,9 +2,9 @@ from torch import nn
 import torch
 
 class LSTM(nn.Module):
-    def __init__(self, input_dim=6, hidden_dim=128, output_dim=60 * 2):
+    def __init__(self, input_dim=6, hidden_dim=128, output_dim=60 * 2, num_layers=2):
         super(LSTM, self).__init__()
-        self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True)
+        self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True, num_layers=num_layers)
         self.fc = nn.Linear(hidden_dim, output_dim)
 
     def forward(self, data):

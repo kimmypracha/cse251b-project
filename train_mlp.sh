@@ -1,5 +1,4 @@
-nohup python train.py \
-  --project cnn_project \
-  --batch_size 128 \
-  --max_epochs 50 \
-  > train.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 python sweep.py \
+    --project_name mlp_trajectory \
+    --entity first-entity \
+    --model mlp
