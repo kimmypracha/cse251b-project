@@ -25,7 +25,10 @@ else:
     device = torch.device('cpu')
 
 def load_dataset(batch_size, scale=7.0):
-    train_npz = np.load('./data/train.npz')['data']
+    print("Loading data")
+    train_npz = np.load('./data/train.npz')
+    train_npz = train_npz["data"]
+    print("Done")
     N = len(train_npz)
     val_size = int(0.1 * N)
     train_data = train_npz[:-val_size]
@@ -38,35 +41,35 @@ def load_dataset(batch_size, scale=7.0):
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True,  collate_fn=collate)
     val_loader   = DataLoader(val_ds,   batch_size=batch_size, shuffle=False, collate_fn=collate)
     return train_loader, val_loader
-
+model_name = None 
 def train():
     # initialize W&B run
     wandb.init()
     config = wandb.config
 
     # --- select model ---
-    if config.model == "linear_regression":
+    if model_name == "linear_regression":
         model = LinearRegressionModel().to(device)
-    elif config.model == "mlp":
-        model = MLP(input_dim=50*50*2,
-                    output_dim=60*2,
+    elif model_name == "mlp":
+        model = MLP(input_features=50*50*6,
+                    output_features=60*2,
                     num_layers=config.num_layers
                    ).to(device)
-    elif config.model == "cnn":
+    elif model_name == "cnn":
         model = CNN(input_channels=6,
                     output_channels=2,
                     num_conv_blocks=config.num_conv_blocks,
                     num_fc_blocks=config.num_fc_blocks,
                     max_pooling=config.max_pooling
                    ).to(device)
-    elif config.model == "lstm":
+    elif model_name == "lstm":
         model = LSTM(input_dim=6,
                      output_dim=60*2,
                      hidden_dim=config.hidden_dim,
                      num_layers=config.num_layers
                     ).to(device)
     else:
-        raise ValueError(f"Unknown model: {config.model}")
+        raise ValueError(f"Unknown model: {model_name}")
 
     # --- optimizer & scheduler from sweep config ---
     optimizer = optim.AdamW(
@@ -160,7 +163,7 @@ def train():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--project", type=str, default="trajectory_prediction")
-    parser.add_argument("--entity",  type=str, default="your_wandb_entity")
+    # parser.add_argument("--entity",  type=str, default="your_wandb_entity")
     parser.add_argument("--model",   type=str, default="linear_regression",
                         choices=["linear_regression", "mlp", "cnn", "lstm"])
     args = parser.parse_args()
@@ -176,8 +179,12 @@ if __name__ == "__main__":
             'num_epochs':    {'values': [50, 100]},
         }
     }
-
+    model_name = args.model
     # model-specific additions
+    if args.model == "mlp":
+        base_sweep['parameters'].update({
+            'num_layers': {'values': [2, 3, 4]},
+        })
     if args.model == "cnn":
         base_sweep['parameters'].update({
             'num_conv_blocks': {'values': [2, 3]},
@@ -185,15 +192,15 @@ if __name__ == "__main__":
             'max_pooling':     {'values': [True, False]},
         })
     elif args.model == "lstm":
-        base_sweep['method'] = 'grid'
         base_sweep['parameters'].update({
             'hidden_dim': {'values': [64, 128, 256]},
             'num_layers': {'values': [1, 2, 3]},
         })
 
     sweep_id = wandb.sweep(
-        sweep   = { **base_sweep, 'name': args.model },
+        sweep   = { **base_sweep},
         project = args.project,
-        entity  = args.entity
+        # entity  = args.entity
     )
-    wandb.agent(sweep_id, function=train, count=None)
+    wandb.agent(sweep_id, function=train, count=1)
+    # train_loader, val_loader = load_dataset(32)
