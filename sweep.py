@@ -202,5 +202,5 @@ if __name__ == "__main__":
         project = args.project,
         # entity  = args.entity
     )
-    wandb.agent(sweep_id, function=train, count=1)
+    wandb.agent(sweep_id, function=train, count=None)
     # train_loader, val_loader = load_dataset(32)
