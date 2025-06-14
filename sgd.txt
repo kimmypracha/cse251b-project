@@ -1,0 +1,100 @@
+Epoch:   2%|▏         | 1/50 [00:05<04:41,  5.74s/epoch]
+Epoch 000 | Learning rate 0.000273 | train normalized MSE   6.2944 | val normalized MSE   5.9359, | val MAE   9.4521 | val MSE 290.8603
+Epoch:   4%|▍         | 2/50 [00:10<04:17,  5.36s/epoch]
+Epoch 001 | Learning rate 0.000273 | train normalized MSE   6.2828 | val normalized MSE   5.9339, | val MAE   9.4498 | val MSE 290.7603
+Epoch:   6%|▌         | 3/50 [00:15<04:02,  5.16s/epoch]
+Epoch 002 | Learning rate 0.000273 | train normalized MSE   6.2961 | val normalized MSE   5.9318, | val MAE   9.4475 | val MSE 290.6604
+Epoch:   8%|▊         | 4/50 [00:20<03:51,  5.04s/epoch]
+Epoch 003 | Learning rate 0.000273 | train normalized MSE   6.2876 | val normalized MSE   5.9298, | val MAE   9.4452 | val MSE 290.5607
+Epoch:  10%|█         | 5/50 [00:25<03:42,  4.95s/epoch]
+Epoch 004 | Learning rate 0.000273 | train normalized MSE   6.2904 | val normalized MSE   5.9278, | val MAE   9.4430 | val MSE 290.4632
+Epoch:  12%|█▏        | 6/50 [00:30<03:33,  4.86s/epoch]
+Epoch 005 | Learning rate 0.000273 | train normalized MSE   6.2842 | val normalized MSE   5.9258, | val MAE   9.4407 | val MSE 290.3647
+Epoch:  14%|█▍        | 7/50 [00:34<03:27,  4.82s/epoch]
+Epoch 006 | Learning rate 0.000273 | train normalized MSE   6.2780 | val normalized MSE   5.9238, | val MAE   9.4385 | val MSE 290.2672
+Epoch:  16%|█▌        | 8/50 [00:39<03:20,  4.78s/epoch]
+Epoch 007 | Learning rate 0.000273 | train normalized MSE   6.2733 | val normalized MSE   5.9218, | val MAE   9.4362 | val MSE 290.1681
+Epoch:  18%|█▊        | 9/50 [00:44<03:13,  4.72s/epoch]
+Epoch 008 | Learning rate 0.000273 | train normalized MSE   6.2929 | val normalized MSE   5.9198, | val MAE   9.4340 | val MSE 290.0693
+Epoch:  20%|██        | 10/50 [00:48<03:06,  4.65s/epoch]
+Epoch 009 | Learning rate 0.000273 | train normalized MSE   6.2626 | val normalized MSE   5.9178, | val MAE   9.4318 | val MSE 289.9713
+Epoch:  22%|██▏       | 11/50 [00:53<03:00,  4.62s/epoch]
+Epoch 010 | Learning rate 0.000273 | train normalized MSE   6.2688 | val normalized MSE   5.9157, | val MAE   9.4296 | val MSE 289.8716
+Epoch:  24%|██▍       | 12/50 [00:57<02:55,  4.63s/epoch]
+Epoch 011 | Learning rate 0.000273 | train normalized MSE   6.2734 | val normalized MSE   5.9137, | val MAE   9.4273 | val MSE 289.7724
+Epoch:  26%|██▌       | 13/50 [01:02<02:52,  4.66s/epoch]
+Epoch 012 | Learning rate 0.000273 | train normalized MSE   6.2665 | val normalized MSE   5.9117, | val MAE   9.4251 | val MSE 289.6736
+Epoch:  28%|██▊       | 14/50 [01:07<02:47,  4.65s/epoch]
+Epoch 013 | Learning rate 0.000273 | train normalized MSE   6.2598 | val normalized MSE   5.9097, | val MAE   9.4229 | val MSE 289.5750
+Epoch:  30%|███       | 15/50 [01:11<02:41,  4.62s/epoch]
+Epoch 014 | Learning rate 0.000273 | train normalized MSE   6.2697 | val normalized MSE   5.9076, | val MAE   9.4207 | val MSE 289.4744
+Epoch:  32%|███▏      | 16/50 [01:16<02:37,  4.62s/epoch]
+Epoch 015 | Learning rate 0.000273 | train normalized MSE   6.2790 | val normalized MSE   5.9056, | val MAE   9.4185 | val MSE 289.3741
+Epoch:  34%|███▍      | 17/50 [01:20<02:32,  4.62s/epoch]
+Epoch 016 | Learning rate 0.000273 | train normalized MSE   6.2644 | val normalized MSE   5.9035, | val MAE   9.4162 | val MSE 289.2710
+Epoch:  36%|███▌      | 18/50 [01:25<02:28,  4.63s/epoch]
+Epoch 017 | Learning rate 0.000273 | train normalized MSE   6.2636 | val normalized MSE   5.9014, | val MAE   9.4140 | val MSE 289.1707
+Epoch:  38%|███▊      | 19/50 [01:30<02:27,  4.74s/epoch]
+Epoch 018 | Learning rate 0.000273 | train normalized MSE   6.2582 | val normalized MSE   5.8993, | val MAE   9.4118 | val MSE 289.0681
+Epoch:  40%|████      | 20/50 [01:35<02:25,  4.84s/epoch]
+Epoch 019 | Learning rate 0.000273 | train normalized MSE   6.2663 | val normalized MSE   5.8973, | val MAE   9.4096 | val MSE 288.9658
+Epoch:  42%|████▏     | 21/50 [01:40<02:22,  4.92s/epoch]
+Epoch 020 | Learning rate 0.000273 | train normalized MSE   6.2481 | val normalized MSE   5.8952, | val MAE   9.4073 | val MSE 288.8628
+Epoch:  44%|████▍     | 22/50 [01:45<02:17,  4.93s/epoch]
+Epoch 021 | Learning rate 0.000273 | train normalized MSE   6.2444 | val normalized MSE   5.8930, | val MAE   9.4051 | val MSE 288.7584
+Epoch:  46%|████▌     | 23/50 [01:50<02:13,  4.93s/epoch]
+Epoch 022 | Learning rate 0.000273 | train normalized MSE   6.2445 | val normalized MSE   5.8908, | val MAE   9.4027 | val MSE 288.6511
+Epoch:  48%|████▊     | 24/50 [01:55<02:08,  4.96s/epoch]
+Epoch 023 | Learning rate 0.000273 | train normalized MSE   6.2568 | val normalized MSE   5.8887, | val MAE   9.4005 | val MSE 288.5450
+Epoch:  50%|█████     | 25/50 [02:00<02:05,  5.03s/epoch]
+Epoch 024 | Learning rate 0.000273 | train normalized MSE   6.2498 | val normalized MSE   5.8865, | val MAE   9.3981 | val MSE 288.4363
+Epoch:  52%|█████▏    | 26/50 [02:05<01:58,  4.92s/epoch]
+Epoch 025 | Learning rate 0.000273 | train normalized MSE   6.2447 | val normalized MSE   5.8842, | val MAE   9.3958 | val MSE 288.3278
+Epoch:  54%|█████▍    | 27/50 [02:10<01:49,  4.78s/epoch]
+Epoch 026 | Learning rate 0.000273 | train normalized MSE   6.2489 | val normalized MSE   5.8820, | val MAE   9.3935 | val MSE 288.2184
+Epoch:  56%|█████▌    | 28/50 [02:14<01:45,  4.78s/epoch]
+Epoch 027 | Learning rate 0.000273 | train normalized MSE   6.2441 | val normalized MSE   5.8797, | val MAE   9.3911 | val MSE 288.1067
+Epoch:  58%|█████▊    | 29/50 [02:19<01:39,  4.75s/epoch]
+Epoch 028 | Learning rate 0.000273 | train normalized MSE   6.2422 | val normalized MSE   5.8775, | val MAE   9.3888 | val MSE 287.9961
+Epoch:  60%|██████    | 30/50 [02:24<01:34,  4.70s/epoch]
+Epoch 029 | Learning rate 0.000273 | train normalized MSE   6.2422 | val normalized MSE   5.8751, | val MAE   9.3864 | val MSE 287.8818
+Epoch:  62%|██████▏   | 31/50 [02:28<01:28,  4.67s/epoch]
+Epoch 030 | Learning rate 0.000273 | train normalized MSE   6.2422 | val normalized MSE   5.8728, | val MAE   9.3839 | val MSE 287.7655
+Epoch:  64%|██████▍   | 32/50 [02:33<01:23,  4.63s/epoch]
+Epoch 031 | Learning rate 0.000273 | train normalized MSE   6.2458 | val normalized MSE   5.8704, | val MAE   9.3815 | val MSE 287.6499
+Epoch:  66%|██████▌   | 33/50 [02:38<01:20,  4.73s/epoch]
+Epoch 032 | Learning rate 0.000273 | train normalized MSE   6.2335 | val normalized MSE   5.8680, | val MAE   9.3791 | val MSE 287.5341
+Epoch:  68%|██████▊   | 34/50 [02:43<01:17,  4.83s/epoch]
+Epoch 033 | Learning rate 0.000273 | train normalized MSE   6.2448 | val normalized MSE   5.8656, | val MAE   9.3767 | val MSE 287.4156
+Epoch:  70%|███████   | 35/50 [02:48<01:14,  4.95s/epoch]
+Epoch 034 | Learning rate 0.000273 | train normalized MSE   6.2252 | val normalized MSE   5.8632, | val MAE   9.3742 | val MSE 287.2962
+Epoch:  72%|███████▏  | 36/50 [02:53<01:10,  5.02s/epoch]
+Epoch 035 | Learning rate 0.000273 | train normalized MSE   6.2258 | val normalized MSE   5.8608, | val MAE   9.3717 | val MSE 287.1769
+Epoch:  74%|███████▍  | 37/50 [02:58<01:05,  5.03s/epoch]
+Epoch 036 | Learning rate 0.000273 | train normalized MSE   6.2232 | val normalized MSE   5.8582, | val MAE   9.3692 | val MSE 287.0539
+Epoch:  76%|███████▌  | 38/50 [03:03<01:00,  5.03s/epoch]
+Epoch 037 | Learning rate 0.000273 | train normalized MSE   6.2090 | val normalized MSE   5.8557, | val MAE   9.3666 | val MSE 286.9275
+Epoch:  78%|███████▊  | 39/50 [03:08<00:55,  5.06s/epoch]
+Epoch 038 | Learning rate 0.000273 | train normalized MSE   6.2121 | val normalized MSE   5.8530, | val MAE   9.3639 | val MSE 286.7975
+Epoch:  80%|████████  | 40/50 [03:14<00:50,  5.09s/epoch]
+Epoch 039 | Learning rate 0.000273 | train normalized MSE   6.2241 | val normalized MSE   5.8504, | val MAE   9.3613 | val MSE 286.6683
+Epoch:  82%|████████▏ | 41/50 [03:18<00:44,  4.95s/epoch]
+Epoch 040 | Learning rate 0.000273 | train normalized MSE   6.2152 | val normalized MSE   5.8477, | val MAE   9.3586 | val MSE 286.5363
+Epoch:  84%|████████▍ | 42/50 [03:23<00:38,  4.87s/epoch]
+Epoch 041 | Learning rate 0.000273 | train normalized MSE   6.2132 | val normalized MSE   5.8450, | val MAE   9.3560 | val MSE 286.4037
+Epoch:  86%|████████▌ | 43/50 [03:27<00:33,  4.75s/epoch]
+Epoch 042 | Learning rate 0.000273 | train normalized MSE   6.2107 | val normalized MSE   5.8422, | val MAE   9.3532 | val MSE 286.2686
+Epoch:  88%|████████▊ | 44/50 [03:32<00:28,  4.73s/epoch]
+Epoch 043 | Learning rate 0.000273 | train normalized MSE   6.2121 | val normalized MSE   5.8394, | val MAE   9.3505 | val MSE 286.1308
+Epoch:  90%|█████████ | 45/50 [03:36<00:23,  4.65s/epoch]
+Epoch 044 | Learning rate 0.000273 | train normalized MSE   6.2183 | val normalized MSE   5.8366, | val MAE   9.3477 | val MSE 285.9911
+Epoch:  92%|█████████▏| 46/50 [03:41<00:18,  4.64s/epoch]
+Epoch 045 | Learning rate 0.000273 | train normalized MSE   6.1866 | val normalized MSE   5.8337, | val MAE   9.3448 | val MSE 285.8495
+Epoch:  94%|█████████▍| 47/50 [03:46<00:14,  4.67s/epoch]
+Epoch 046 | Learning rate 0.000273 | train normalized MSE   6.2001 | val normalized MSE   5.8306, | val MAE   9.3419 | val MSE 285.7003
+Epoch:  96%|█████████▌| 48/50 [03:51<00:09,  4.76s/epoch]
+Epoch 047 | Learning rate 0.000273 | train normalized MSE   6.1903 | val normalized MSE   5.8276, | val MAE   9.3389 | val MSE 285.5520
+Epoch:  98%|█████████▊| 49/50 [03:56<00:04,  4.81s/epoch]
+Epoch 048 | Learning rate 0.000273 | train normalized MSE   6.2005 | val normalized MSE   5.8245, | val MAE   9.3360 | val MSE 285.4028
+Epoch: 100%|██████████| 50/50 [04:01<00:00,  4.82s/epoch]
+Epoch 049 | Learning rate 0.000273 | train normalized MSE   6.1943 | val normalized MSE   5.8214, | val MAE   9.3329 | val MSE 285.2482
